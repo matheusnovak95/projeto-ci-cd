@@ -18,10 +18,10 @@ jobs:
         dotnet-version: '7.0'
 
     - name: Build
-      run: dotnet build
+      run: dotnet build ./ProjetoCiCd/ProjetoCiCd.csproj
 
     - name: Publish
-      run: dotnet publish -c Release -o out
+      run: dotnet publish ./ProjetoCiCd/ProjetoCiCd.csproj -c Release -o out
 
     - name: Deploy
       run: echo "Deploy realizado com sucesso 🚀"
