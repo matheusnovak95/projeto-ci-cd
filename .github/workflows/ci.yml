@@ -20,10 +20,10 @@ jobs:
         dotnet-version: '7.0'
 
     - name: Restore
-      run: dotnet restore
+      run: dotnet restore ./ProjetoCiCd/ProjetoCiCd.csproj
 
     - name: Build
-      run: dotnet build ./ProjetoCiCd/ProjetoCiCd.csproj
+      run: dotnet build ./ProjetoCiCd/ProjetoCiCd.csproj --no-restore
 
     - name: Test
       run: dotnet test ./ProjetoCiCd.Tests/ProjetoCiCd.Tests.csproj

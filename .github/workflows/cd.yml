@@ -17,6 +17,9 @@ jobs:
       with:
         dotnet-version: '7.0'
 
+    - name: Restore
+      run: dotnet restore ./ProjetoCiCd/ProjetoCiCd.csproj
+
     - name: Build
       run: dotnet build ./ProjetoCiCd/ProjetoCiCd.csproj
 
