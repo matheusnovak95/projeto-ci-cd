@@ -6,3 +6,4 @@ int a = 2;
 int b = 3;
 Console.WriteLine(a + b);
 Console.WriteLine($"Resultado: {a + b}");
+// Programa simples para teste de CI/CD
