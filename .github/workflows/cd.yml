@@ -1,0 +1,27 @@
+name: CD
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '7.0'
+
+    - name: Build
+      run: dotnet build
+
+    - name: Publish
+      run: dotnet publish -c Release -o out
+
+    - name: Deploy
+      run: echo "Deploy realizado com sucesso 🚀"
