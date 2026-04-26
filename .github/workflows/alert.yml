@@ -1,0 +1,17 @@
+name: Discord Alert
+
+on:
+  push:
+    branches: [ "main", "desenvolvimento" ]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send message to Discord
+      run: |
+        curl -H "Content-Type: application/json" \
+        -X POST \
+        -d "{\"content\": \"🚀 Novo commit enviado para o repositório!\"}" \
+        ${{ secrets.DISCORD_WEBHOOK }}

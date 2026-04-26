@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [ "*"]
+  pull_request:
+    branches: [ "*" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '7.0'
+
+    - name: Restore
+      run: dotnet restore ./ProjetoCiCd/ProjetoCiCd.csproj
+
+    - name: Build
+      run: dotnet build ./ProjetoCiCd/ProjetoCiCd.csproj --no-restore
+
+    - name: Test
+      run: dotnet test ./ProjetoCiCd.Tests/ProjetoCiCd.Tests.csproj
